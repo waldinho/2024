@@ -76,7 +76,7 @@ export default function Create() {
                 <FormGroup>
                     <input
                     type="submit"
-                    value="Create work"
+                    value="Create"
                     className="btn btn-primary"
                     />
                 </FormGroup>
