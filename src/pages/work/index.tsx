@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from "react";
+import Card from '../../components/Card'
 
 interface CardProps {
     _id: string;
@@ -27,11 +27,7 @@ export default function Work() {
     }, [workList.length]);
 
     const recordList = () => workList?.map((work: CardProps) => (
-        <>
-            <p>{work?.company}</p>
-            <p>{work?.blurb}</p>
-            <p>{work?.logoUrl}</p>
-        </>
+            <Card {...work} />
         )
     );
 
