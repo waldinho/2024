@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-
-interface CardProps {
-    company?: string;
-    blurb?: string;
-    logoUrl?: string;
-}
+import { CardProps } from '../types';
 
 const Card = ({ company, blurb, logoUrl }: CardProps) => (
     <CardWrapper>
@@ -27,6 +22,7 @@ const CardWrapper = styled.div`
 const Logo = styled.img`
     height: 5rem;
     width: auto;
+    border-radius: 0.5rem;
 `;
 
 export default Card;

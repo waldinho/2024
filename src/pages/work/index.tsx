@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
+import { Work } from '../../types';
 import Card from '../../components/Card'
-
-interface CardProps {
-    _id: string;
-    company?: string;
-    blurb?: string;
-    logoUrl?: string;
-}
 
 export default function Work() {
     const [workList, setWorkList] = useState([]);
@@ -26,8 +20,8 @@ export default function Work() {
          return;
     }, [workList.length]);
 
-    const recordList = () => workList?.map((work: CardProps) => (
-            <Card {...work} />
+    const recordList = () => workList?.map((work: Work) => (
+            <Card {...work} key={work.company}/>
         )
     );
 

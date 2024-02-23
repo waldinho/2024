@@ -1,15 +1,10 @@
 import React, { useState, FormEvent } from "react";
 import { useRouter } from 'next/navigation'
 import styled from 'styled-components';
-
-interface Work {
-    company?: string;
-    blurb?: string;
-    logoUrl?: string;
-}
+import { CardProps } from '../types';
 
 export default function Create() {
-    const [form, setForm] = useState<Work>({
+    const [form, setForm] = useState<CardProps>({
         company: "",
         blurb: "",
         logoUrl: "",
@@ -17,7 +12,7 @@ export default function Create() {
      
     const router = useRouter()
      
-    const updateForm = (value: Work) => {
+    const updateForm = (value: CardProps) => {
         return setForm((prev) => {
             return { ...prev, ...value };
         });
@@ -38,7 +33,7 @@ export default function Create() {
             return;
         });
         setForm({ company: "", blurb: "", logoUrl: "" });
-        router.push('/', { scroll: false })
+        router.push('/work', { scroll: false })
     }
 
     return (
