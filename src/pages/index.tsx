@@ -23,7 +23,7 @@ Page.getLayout = function getLayout(page: ReactElement) {
 
 const Wrapper = styled.div`
     display: flex;
-    align-items: end;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     background: url('https://i.etsystatic.com/12444060/r/il/9f214c/2576742551/il_fullxfull.2576742551_dvr6.jpg') #000 no-repeat;
@@ -38,20 +38,28 @@ const Wrapper = styled.div`
 
 const Text = styled.div`
     display: flex;
-    align-items: end;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    padding: 5rem;
+    padding: 2rem;
     color: #fff;
     margin: 0;
-    font-size: 2rem;
+    font-size: 1rem;
+    @media (min-width: 426px) {
+        padding: 5rem;
+        font-size: 2rem;
+    }
 `;
 
 const Title = styled.h1`    
     background: #000;
-    padding: 0 0.75rem;
-    font-size: 5rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 2rem;
     margin: 0;
+    @media (min-width: 426px) {
+        padding: 0 0.75rem;
+        font-size: 5rem;
+    }
 `;
 
 const SubTitle = styled(Title)`    

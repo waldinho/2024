@@ -32,7 +32,6 @@ const MenuItem = styled(Link)`
     color: #fff;
     margin: 0 0.5rem;
     padding: 1rem;
-    text-transform: uppercase;
     &:hover {
         color: #65adf9;
     }
