@@ -15,6 +15,11 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
+      <style jsx global>{`
+        html {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      `}</style>
       <Menu />
       <Component {...pageProps} />
     </>
