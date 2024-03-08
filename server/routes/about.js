@@ -1,6 +1,6 @@
 const express = require("express");
 
-// The router will be added as a middleware and will take control of requests starting with path /work.
+// The router will be added as a middleware and will take control of requests starting with path /about.
 const recordRoutes = express.Router();
  
 // This will help us connect to the database
@@ -10,11 +10,11 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
  
  
-// This section will help you get a list of all the work.
-recordRoutes.route("/work").get(async (req, res) => {
+// This section will help you get a list of all data.
+recordRoutes.route("/about").get(async (req, res) => {
   try {
     const db_connect = await dbo.getDb("portfolio");
-    const result = await db_connect.collection("work").find({}).toArray();
+    const result = await db_connect.collection("about").find({}).toArray();
     res.json(result);
   } catch (err) {
     throw err;
@@ -22,11 +22,11 @@ recordRoutes.route("/work").get(async (req, res) => {
 });
  
 // This section will help you get a single record by id
-recordRoutes.route("/work/:id").get(async (req, res) => {
+recordRoutes.route("/about/:id").get(async (req, res) => {
   try {
     const db_connect = await dbo.getDb();
     const myquery = { _id: new ObjectId(req.params.id) };
-    const result = await db_connect.collection("work").findOne(myquery);
+    const result = await db_connect.collection("about").findOne(myquery);
     res.json(result);
   } catch (err) {
     throw err;
@@ -34,15 +34,15 @@ recordRoutes.route("/work/:id").get(async (req, res) => {
 });
  
 // This section will help you create a new record.
-recordRoutes.route("/work/add").post(async (req, res) => {
+recordRoutes.route("/about/add").post(async (req, res) => {
   try {
     const db_connect = await dbo.getDb();
     const myobj = {
-      company: req.body.company,
+      title: req.body.title,
       blurb: req.body.blurb,
-      logoUrl: req.body.logoUrl,
+      imgUrl: req.body.imgUrl,
     };
-    const result = await db_connect.collection("work").insertOne(myobj);
+    const result = await db_connect.collection("about").insertOne(myobj);
     res.json(result);
   } catch (err) {
     throw err;
@@ -50,18 +50,18 @@ recordRoutes.route("/work/add").post(async (req, res) => {
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/work/update/:id").post(async (req, res) => {
+recordRoutes.route("/about/update/:id").post(async (req, res) => {
   try {
     const db_connect = await dbo.getDb();
     const myquery = { _id: new ObjectId(req.params.id) };
     const newvalues = {
       $set: {
-        company: req.body.company,
+        title: req.body.title,
         blurb: req.body.blurb,
-        logoUrl: req.body.logoUrl,
+        imgUrl: req.body.imgUrl,
       },
     };
-    const result = await db_connect.collection("work").updateOne(myquery, newvalues);
+    const result = await db_connect.collection("about").updateOne(myquery, newvalues);
     console.log("1 document updated");
     res.json(result);
   } catch (err) {
@@ -70,11 +70,11 @@ recordRoutes.route("/work/update/:id").post(async (req, res) => {
 });
  
 // This section will help you delete a record
-recordRoutes.route("/work/:id").delete(async (req, res) => {
+recordRoutes.route("/about/:id").delete(async (req, res) => {
   try {
     const db_connect = await dbo.getDb();
     const myquery = { _id: new ObjectId(req.params.id) };
-    const result = await db_connect.collection("work").deleteOne(myquery);
+    const result = await db_connect.collection("about").deleteOne(myquery);
     console.log("1 document deleted");
     res.json(result);
   } catch (err) {
