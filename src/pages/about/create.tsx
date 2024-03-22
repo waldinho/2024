@@ -1,4 +1,4 @@
-import Create from "../../components/CreateWork";
+import Create from "../../components/CreateAbout";
 
 const CreateWork = () => {
   return <Create />;

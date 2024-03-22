@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { CardProps } from '../types';
 
-const Card = ({ company, blurb, logoUrl }: CardProps) => (
+const Card = ({ title, company, blurb, logoUrl, imgUrl }: CardProps) => (
     <CardWrapper>
-        <Logo src={logoUrl} />
-        <p>{company}</p>
+        <Logo src={logoUrl || imgUrl} />
+        <p>{company || title}</p>
         <p>{blurb}</p>
     </CardWrapper>
 )
@@ -14,7 +14,7 @@ const CardWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 1rem;
+    margin: 1rem 0.5rem;
     padding: 1rem;
     border: 1px solid black;
 `;

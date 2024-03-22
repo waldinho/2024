@@ -20,23 +20,27 @@ const LinkWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     background: #000;
     position: fixed;
     width: 100%;
     top: 0px;
     left: 0px;
 `;
+
 const MenuItem = styled(Link)`
     text-decoration: none;
     color: #fff;
-    margin: 0 0.5rem;
-    padding: 1rem;
+    margin: 0.75rem 1rem;
+    padding: 0.25rem 0;
+    border-bottom: 0.2rem solid #000;
     &:hover {
-        color: #65adf9;
+        color: #f9a652;
     }
     &.active {
         color: #65adf9;
+        border-bottom: 0.2rem solid;
+        transition: all 0.4s ease-in;
     }
 `;
 

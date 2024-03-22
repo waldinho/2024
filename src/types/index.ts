@@ -1,10 +1,12 @@
 export type CardProps = {
+    title?: string;
     company?: string;
     blurb?: string;
     logoUrl?: string;
+    imgUrl?: string;
 }
 
-export interface Work extends CardProps {
+export interface Content extends CardProps {
     _id: string;
 }
 
